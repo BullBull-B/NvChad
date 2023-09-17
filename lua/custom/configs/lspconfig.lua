@@ -3,6 +3,18 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 local lspconfig = require "lspconfig"
 
 -- xml setup
+lspconfig.intelephense.setup{
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = {"intelephense", "--stdio"},
+  filetypes = {"php"},
+  root_dir = lspconfig.util.root_pattern(
+    "composer.json", ".git"
+  ),
+  single_file_support = true
+}
+
+-- xml setup
 lspconfig.lemminx.setup{
   on_attach = on_attach,
   capabilities = capabilities,
