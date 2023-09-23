@@ -2,6 +2,20 @@ local on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilities
 local lspconfig = require "lspconfig"
 
+-- mason ensure install
+lspconfig.mason.setup{
+  ensure_installed = {"clangd",
+    "css-lsp",
+    "emmet-language-server",
+    "html-lsp",
+    "intelephense",
+    "jdtls",
+    "lemminx",
+    "lua-language-server",
+    "prettierd",
+    "xmlformatter"}
+}
+
 -- xml setup
 lspconfig.intelephense.setup{
   on_attach = on_attach,
