@@ -3,7 +3,7 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 local lspconfig = require "lspconfig"
 
 --you can copy and install these LSPs by pasting below line in command mode:
---MasonInstall clangd css-lsp emmet-language-server html-lsp intelephense jdtls lemminx luae-language-server prettierd xmlformatter
+--MasonInstall clangd css-lsp emmet-language-server html-lsp intelephense jdtls lemminx lua-language-server prettierd xmlformatter
 
 -- xml setup
 lspconfig.intelephense.setup{
