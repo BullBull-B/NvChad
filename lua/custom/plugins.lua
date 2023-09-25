@@ -1,9 +1,6 @@
 local plugins = {
   {
     "aurum77/live-server.nvim",
-    config = function()
-      require("plugins.live-server")
-    end,
     cmd = {
       "LiveServer",
       "LiveServerStart",
