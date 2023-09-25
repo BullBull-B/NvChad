@@ -5,6 +5,52 @@ local lspconfig = require "lspconfig"
 --you can copy and install these LSPs by pasting below line in command mode:
 --MasonInstall clangd css-lsp emmet-language-server html-lsp intelephense jdtls lemminx lua-language-server prettierd xmlformatter
 
+-- tailwindcss setup
+lspconfig.tailwindcss.setup{
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = {"tailwindcss-language-server", "--stdio"},
+  filetypes = { "aspnetcorerazor", "astro", "astro-markdown", "blade", "clojure", "django-html", "htmldjango", "edge",
+    "eelixir", "elixir", "ejs", "erb", "eruby", "gohtml", "haml", "handlebars", "hbs", "html", "html-eex", "heex", "jade",
+    "leaf", "liquid", "markdown", "mdx", "mustache", "njk", "nunjucks", "php", "razor", "slim", "twig", "css", "less",
+    "postcss", "sass", "scss", "stylus", "sugarss", "javascript", "javascriptreact", "reason", "rescript", "typescript",
+    "typescriptreact", "vue", "svelte" },
+  init_options = {
+    userLanguage = {
+      eelixir = "html-eex",
+      eruby = "erb"
+    },
+  },
+  root_dir = lspconfig.util.root_pattern(
+    'tailwind.config.js',
+    'tailwind.config.cjs',
+    'tailwind.config.mjs',
+    'tailwind.config.ts',
+    'postcss.config.js',
+    'postcss.config.cjs',
+    'postcss.config.mjs',
+    'postcss.config.ts',
+    'package.json',
+    'node_modules',
+    '.git'
+  ),
+  settings = {
+    tailwindCSS = {
+      classAttributes = { "class", "className", "class:list", "classList", "ngClass" },
+      lint = {
+        cssConflict = "warning",
+        invalidApply = "error",
+        invalidConfigPath = "error",
+        invalidScreen = "error",
+        invalidTailwindDirective = "error",
+        invalidVariant = "error",
+        recommendedVariantOrder = "warning"
+      },
+      validate = true
+    }
+  }
+}
+
 -- xml setup
 lspconfig.intelephense.setup{
   on_attach = on_attach,
