@@ -13,6 +13,11 @@ local plugins = {
   },
 
   {
+    "vimwiki/vimwiki",
+    event = "VimEnter",
+  },
+
+  {
     "christoomey/vim-tmux-navigator",
     lazy = false,
   },
